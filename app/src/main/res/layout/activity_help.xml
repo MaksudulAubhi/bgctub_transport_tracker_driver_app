@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".HelpActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#F8FBFB"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <!-- Header & Edit option -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+
+                <TextView
+                    android:id="@+id/nav_transport_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="সাহায্য"
+                    android:textColor="#0C0C0C"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/transInfo_View_edit_imgBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#F8FBFB"
+                    android:src="@drawable/ic_action_help" />
+
+            </LinearLayout>
+            <!-- prequisite header -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="left"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:src="@android:drawable/btn_star"
+                    app:tint="?attr/colorPrimary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tip0text"
+                    android:textColor="#0c0c0c"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- registration header -->
+
+            <!-- registration help -->
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="রেজিস্ট্রেশান"
+                android:textColor="#0c0c0c"
+                android:textSize="18sp"
+                android:layout_marginVertical="10dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="210dp"
+                android:layout_height="195dp"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:src="@drawable/signin"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:text="@string/registration_help_text1"
+                android:layout_marginVertical="5dp"
+                android:textColor="#0c0c0c"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="210dp"
+                android:layout_height="195dp"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:src="@drawable/ver_code"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:text="@string/registration_help_text2"
+                android:layout_marginTop="5dp"
+                android:textColor="#0c0c0c"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:layout_width="210dp"
+                android:layout_height="195dp"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:src="@drawable/retry_signup"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:text="@string/registration_help_text3"
+                android:layout_marginTop="5dp"
+                android:textColor="#0c0c0c"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+            <!-- home header -->
+
+            <!-- home help -->
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="হোম"
+                android:textColor="#0c0c0c"
+                android:textSize="18sp"
+                android:layout_marginVertical="10dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="210dp"
+                android:layout_height="195dp"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:src="@drawable/home"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:text="@string/home_help_text"
+                android:layout_marginTop="5dp"
+                android:textColor="#0c0c0c"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+
+
+            <!-- transport header -->
+
+            <!-- transport help -->
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="গাড়ীর তথ্য"
+                android:textColor="#0c0c0c"
+                android:textSize="18sp"
+                android:layout_marginVertical="10dp"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:layout_width="210dp"
+                android:layout_height="195dp"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:src="@drawable/nav_1"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:text="@string/transport_help_text1"
+                android:layout_marginTop="5dp"
+                android:textColor="#0c0c0c"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="210dp"
+                android:layout_height="195dp"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:src="@drawable/trans_info"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:text="@string/trans_help_text2"
+                android:layout_marginTop="5dp"
+                android:textColor="#0c0c0c"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+
+            <!-- report and header -->
+
+            <!-- report and feedback help -->
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="রিপোর্ট এবং ফিডব্যাক"
+                android:textColor="#0c0c0c"
+                android:textSize="18sp"
+                android:layout_marginVertical="10dp"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:layout_width="210dp"
+                android:layout_height="195dp"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:src="@drawable/nav"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:text="@string/report_feedback_help_text1"
+                android:layout_marginTop="5dp"
+                android:textColor="#0c0c0c"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="210dp"
+                android:layout_height="195dp"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="5dp"
+                android:padding="5dp"
+                android:src="@drawable/report"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:text="@string/report_feedback_help_text2"
+                android:layout_marginTop="5dp"
+                android:textColor="#0c0c0c"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+
+
+
+
+            <!-- bottom nav app name-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:paddingTop="10dp"
+                android:text="@string/app_name"
+                android:textColor="#0c0c0c"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="10dp"
+                android:text="@string/app_main_name"
+                android:textColor="#0c0c0c"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

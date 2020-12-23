@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Driver App</string>
+    <string name="app_main_name">BGCTUB Transport Tracking App</string>
+
+    <string name="notification_text">আপনার ফোনের ইন্টারনেট কানেকশান এবং লোকেশান চালু রাখুন।
+        আপনার নিজের এবং গাড়ীর তথ্য আপডেট করতে এইখানে ক্লিক করুন।</string>
+
+    <string name="tips1Text">দয়া করে ভুলভাবে ওভারটেকিং করবেন না।</string>
+    <string name="tip2Text">দয়া করে ভুল পাশে গাড়ী চালাবেন না ।</string>
+    <string name="tip3text">দয়া করে ট্রাফিক আইন মেনে চলুন।</string>
+    <string name="tips_next_btn_text">পরবর্তী</string>
+    <string name="action_reload_text">রিলোড</string>
+    <string name="tips_cancel_btn_text">বাদ দিন</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tip0text">আপনার ফোনের ইন্টারনেট কানেকশান এবং লোকেশান চালু রাখুন।</string>
+    <string name="snackbar_message">দয়া করে আপনার ফোনের লোকেশান চালু করুন</string>
+    <string name="off_location_snackbar_message">দয়া করে আপনার ফোনের লোকেশান চালু করুন।</string>
+    <string name="off_location_internet_snackbar_message">দয়া করে আপনার ফোনের ইন্টারনেট কানেকশান এবং লোকেশান চালু করুন।</string>
+    <string name="off_internet_message">দয়া করে আপনার ফোনের ইন্টারনেট কানেকশান চালু করুন।</string>
+    <string name="phoneNumberEdittextHint">শূন্য সহ আপনার ফোন নম্বর দিন</string>
+    <string name="verifyCodeEditTextHint">আপনাকে ভেরিফিকেশান কোড সহ একটি এসএমএস পাঠানো হয়েছে। দয়া করে কোডটি দিন।</string>
+
+    <string name="transportInformationUpdateActivityTitle">গাড়ীর তথ্য</string>
+    <string name="title_signup_activity">ড্রাইভার অ্যাপ: সাইন ইন</string>
+    <string name="title_tips_activity">ড্রাইভার অ্যাপ: টিপস</string>
+    <string name="title_activity_main2">MainActivity</string>
+
+
+    <string name="nav_header_subtitle">BGCTUB Transport Tracking App</string>
+
+    <string name="action_settings_text">সেটিংস</string>
+
+    <string name="menu_home">হোম</string>
+    <string name="menu_transport_info">গাড়ীর তথ্য</string>
+
+    <string name="menu_about">সম্পর্কে</string>
+    <string name="menu_help">সাহায্য</string>
+    <string name="menu_report">রিপোর্ট এবং ফিডব্যাক</string>
+    <string name="action_logout_text">লগআউট</string>
+    <string name="title_activity_settings">সেটিংস</string>
+    <string name="action_exit_text">বন্ধ করুন</string>
+
+
+    <!-- setting Preference string resources -->
+
+    <string name="note_title_pre">নোট করুন</string>
+    <string name="note_btn_title">আপনার গুরুত্বপূর্ণ তথ্য নোট করুন</string>
+    <string name="note_text_title">গুরুত্বপূর্ণ তথ্য</string>
+    <string name="action_news_update_text">খবর এবং আপডেট</string>
+    <string name="tran_info_view_btn_text">তথ্য আপডেট করুন</string>
+    <string name="registration_help_text1">সাইন ইন করার জন্যে আপনার ফোন নম্বর দিন। আপনি যদি আগে সাইন ইন
+        করে থাকেন তাহলে আগের ফোন নম্বরটি দিয়ে সাইন ইন করুন। পরবর্তী বাটনে ক্লিক করার পর আপনাকে একটি ভেরিফিকেশান কোড সহ এসএমএস পাঠানো হবে। </string>
+    <string name="registration_help_text2">আপনাকে পাঠানো ভেরিফিকেশান কোডটি দিন এবং সাইন ইন বাটন ক্লিক করুন।</string>
+    <string name="home_help_text">যাত্রা শুরুর আগে অ্যাক্টিভ বাটন চালু করুন। যাত্রা শেষে এবং লগআউট করার পূর্বে বন্ধ করুন।</string>
+    <string name="transport_help_text1">গাড়ীর তথ্য দেখার জন্যে নেভিগেশান বার থেকে গাড়ীর তথ্য অপশানটি সিলেক্ট করুন।</string>
+    <string name="trans_help_text2">গাড়ীর তথ্য আপডেট করার জন্যে উপরের এডিট বাটনে ক্লিক করুন।</string>
+    <string name="registration_help_text3">আপনি যদি এসএমএস না পেয়ে থাকেন পুনরায় চেষ্টা করুন। এক মিনিট পর আপনাকে পুনরায় চেষ্টা করার অপশানটি দেয়া হবে।</string>
+    <string name="signup_message_text">সাইন ইন করার জন্যে আপনার ফোন নম্বর দিন। আপনি যদি আগে সাইন ইন করে থাকেন তাহলে আগের ফোন নম্বরটি দিয়ে সাইন ইন করুন।</string>
+    <string name="report_feedback_help_text1">রিপোর্ট করতে অথবা আপনার ফিডব্যাক জানাতে নেভিগেশান বার থেকে রিপোর্ট এবং ফিডব্যাক অপশানটি সিলেক্ট করুন।</string>
+    <string name="report_feedback_help_text2">আপনার রিপোর্টের অথবা ফিডব্যাকের একটি টাইটেল দিন এবং আপনার রিপোর্ট অথবা ফিডব্যাক সম্বন্ধে তথ্য দিন।</string>
+    <string name="title_activity_app_main">AppMainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="blog_link">https://bgctubtransporttrackingapp.blogspot.com</string>
+
+
+</resources>
