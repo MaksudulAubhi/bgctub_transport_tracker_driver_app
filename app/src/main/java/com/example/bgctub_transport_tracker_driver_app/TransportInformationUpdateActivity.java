@@ -154,11 +154,11 @@ public class TransportInformationUpdateActivity extends AppCompatActivity implem
             return;
         }
         if(TextUtils.isEmpty(transName)){
-            transportNameEditText.setError("দয়া করে আপনার গাড়ীর নাম দিন");
+            transportNameEditText.setError("দয়া করে আপনার গাড়ীর কোম্পানি নাম দিন");
             return;
         }
         if(TextUtils.isEmpty(transNumber)){
-            transportNumberEditText.setError("দয়া করে আপনার নম্বর দিন");
+            transportNumberEditText.setError("দয়া করে আপনার গাড়ীর নম্বর দিন");
             return;
         }
         if(TextUtils.isEmpty(schTime)){
@@ -169,16 +169,16 @@ public class TransportInformationUpdateActivity extends AppCompatActivity implem
             scheduleDateEditText.setError("দয়া করে যাত্রা শুরুর তারিখ দিন");
             return;
         }
-        if(TextUtils.isEmpty(schRoad)){
-            scheduleRoadEditText.setError("দয়া করে রোডের নাম দিন");
-            return;
-        }
         if(TextUtils.isEmpty(startLoc)){
             start_loc_EditText.setError("দয়া করে যাত্রা শুরুর জায়গার নাম দিন");
             return;
         }
         if(TextUtils.isEmpty(destinition)){
             destinitionEditText.setError("দয়া করে আপনার গন্তব্য দিন");
+            return;
+        }
+        if(TextUtils.isEmpty(schRoad)){
+            scheduleRoadEditText.setError("দয়া করে রোডের নাম দিন");
             return;
         }
 
