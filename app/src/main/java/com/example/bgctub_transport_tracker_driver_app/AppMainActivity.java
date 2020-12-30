@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.view.WindowManager;
 
 import com.example.bgctub_transport_tracker_driver_app.services.BuildNotificationService;
 import com.example.bgctub_transport_tracker_driver_app.services.TrackerService;
@@ -45,6 +46,9 @@ public class AppMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_app_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //Using for keep screen on
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);

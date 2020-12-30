@@ -11,6 +11,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.example.bgctub_transport_tracker_driver_app.services.BuildNotificationService;
 import com.example.bgctub_transport_tracker_driver_app.ui.tips0.Tips0Fragment;
@@ -30,6 +31,9 @@ public class TipsActivity extends AppCompatActivity {
                     .replace(R.id.container, Tips0Fragment.newInstance())
                     .commitNow();
         }
+
+        //Using for keep screen on
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         timer = new Timer();
 
