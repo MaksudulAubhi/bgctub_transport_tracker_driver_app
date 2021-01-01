@@ -18,7 +18,10 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.bgctub_transport_tracker_driver_app.data_secure.DataSecure;
 import com.example.bgctub_transport_tracker_driver_app.model.TransportInformation;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -39,6 +42,8 @@ public class TransportInformationUpdateActivity extends AppCompatActivity implem
     private FirebaseUser mUser;
     private DatabaseReference transportInfoDatabaseRef;
     private ProgressDialog progressDialog;
+    private DataSecure dataSecure;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +59,8 @@ public class TransportInformationUpdateActivity extends AppCompatActivity implem
         //Using for keep screen on
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+        //for encoding and decoding
+        dataSecure=new DataSecure();
 
         driverNameEditText=(EditText) findViewById(R.id.driver_name_editText);
         driverAddressEditText=(EditText) findViewById(R.id.driver_address_editText);
@@ -99,15 +106,15 @@ public class TransportInformationUpdateActivity extends AppCompatActivity implem
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
-                    String name = snapshot.child("driver_name").getValue().toString();
-                    String address = snapshot.child("driver_address").getValue().toString();
-                    String transName = snapshot.child("vehicle_name").getValue().toString();
-                    String transNumber = snapshot.child("vehicle_number").getValue().toString();
-                    String schTime = snapshot.child("start_time_schedule").getValue().toString();
-                    String schDate = snapshot.child("start_date_schedule").getValue().toString();
-                    String schRoad = snapshot.child("travel_road").getValue().toString();
-                    String startLoc = snapshot.child("start_location").getValue().toString();
-                    String destinition = snapshot.child("destinition").getValue().toString();
+                    String name = dataSecure.dataDecode(snapshot.child("driver_name").getValue().toString());
+                    String address = dataSecure.dataDecode(snapshot.child("driver_address").getValue().toString());
+                    String transName = dataSecure.dataDecode(snapshot.child("vehicle_name").getValue().toString());
+                    String transNumber = dataSecure.dataDecode(snapshot.child("vehicle_number").getValue().toString());
+                    String schTime = dataSecure.dataDecode(snapshot.child("start_time_schedule").getValue().toString());
+                    String schDate = dataSecure.dataDecode(snapshot.child("start_date_schedule").getValue().toString());
+                    String schRoad = dataSecure.dataDecode(snapshot.child("travel_road").getValue().toString());
+                    String startLoc = dataSecure.dataDecode(snapshot.child("start_location").getValue().toString());
+                    String destinition = dataSecure.dataDecode(snapshot.child("destinition").getValue().toString());
 
                     driverNameEditText.setText(name);
                     driverAddressEditText.setText(address);
@@ -189,21 +196,39 @@ public class TransportInformationUpdateActivity extends AppCompatActivity implem
         progressDialog.setMessage("তথ্য আপডেট করা হচ্ছে");
         progressDialog.show();
 
-        TransportInformation transportInformation=new TransportInformation(
-                userId,name,contact,address,schTime,schDate,startLoc,destinition,transName,transNumber,schRoad);
+
+        //encoding and add data
+        TransportInformation transportInformation=new TransportInformation(userId,
+                dataSecure.dataEncode(name),dataSecure.dataEncode(contact),
+                dataSecure.dataEncode(address),dataSecure.dataEncode(schTime),
+                dataSecure.dataEncode(schDate),dataSecure.dataEncode(startLoc),
+                dataSecure.dataEncode(destinition),dataSecure.dataEncode(transName),
+                dataSecure.dataEncode(transNumber),dataSecure.dataEncode(schRoad));
 
 
         try {
-            transportInfoDatabaseRef.setValue(transportInformation);
+            transportInfoDatabaseRef.setValue(transportInformation).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Toast.makeText(TransportInformationUpdateActivity.this,"তথ্য আপডেট করা হয়েছে",Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
+                }
 
-            Toast.makeText(this,"তথ্য আপডেট করা হয়েছে",Toast.LENGTH_LONG).show();
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(TransportInformationUpdateActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(TransportInformationUpdateActivity.this,"দয়া করে আবার চেষ্টা করুন",Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
+                }
+            });
         }catch(Exception exception){
-
             Toast.makeText(this,"দয়া করে আবার চেষ্টা করুন",Toast.LENGTH_LONG).show();
         }
-        progressDialog.dismiss();
-
     }
+
+
+
 
     //choose time from time picker to click time editText**
     public void timePicker(){

@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.bgctub_transport_tracker_driver_app.R;
 import com.example.bgctub_transport_tracker_driver_app.TransportInformationUpdateActivity;
+import com.example.bgctub_transport_tracker_driver_app.data_secure.DataSecure;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,6 +35,7 @@ public class TransportInformationFragment extends Fragment implements View.OnCli
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     private DatabaseReference transportInfoDatabaseRef;
+    private DataSecure dataSecure;
 
     public static TransportInformationFragment newInstance() {
         return new TransportInformationFragment();
@@ -43,6 +45,10 @@ public class TransportInformationFragment extends Fragment implements View.OnCli
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.transport_information_fragment, container, false);
+
+        //for encoding and decoding
+        dataSecure=new DataSecure();
+
         openEditTransportInfoImgBtn = root.findViewById(R.id.transInfo_View_edit_imgBtn);
 
         driverNameTextView = root.findViewById(R.id.driver_name_textview);
@@ -89,16 +95,16 @@ public class TransportInformationFragment extends Fragment implements View.OnCli
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
-                    String name = snapshot.child("driver_name").getValue().toString();
-                    String contact = snapshot.child("driver_contact").getValue().toString();
-                    String address = snapshot.child("driver_address").getValue().toString();
-                    String transName = snapshot.child("vehicle_name").getValue().toString();
-                    String transNumber = snapshot.child("vehicle_number").getValue().toString();
-                    String schTime = snapshot.child("start_time_schedule").getValue().toString();
-                    String schDate = snapshot.child("start_date_schedule").getValue().toString();
-                    String schRoad = snapshot.child("travel_road").getValue().toString();
-                    String startLoc = snapshot.child("start_location").getValue().toString();
-                    String destinition = snapshot.child("destinition").getValue().toString();
+                    String name = dataSecure.dataDecode(snapshot.child("driver_name").getValue().toString());
+                    String contact = dataSecure.dataDecode(snapshot.child("driver_contact").getValue().toString());
+                    String address = dataSecure.dataDecode(snapshot.child("driver_address").getValue().toString());
+                    String transName = dataSecure.dataDecode(snapshot.child("vehicle_name").getValue().toString());
+                    String transNumber = dataSecure.dataDecode(snapshot.child("vehicle_number").getValue().toString());
+                    String schTime = dataSecure.dataDecode(snapshot.child("start_time_schedule").getValue().toString());
+                    String schDate = dataSecure.dataDecode(snapshot.child("start_date_schedule").getValue().toString());
+                    String schRoad = dataSecure.dataDecode(snapshot.child("travel_road").getValue().toString());
+                    String startLoc = dataSecure.dataDecode(snapshot.child("start_location").getValue().toString());
+                    String destinition = dataSecure.dataDecode(snapshot.child("destinition").getValue().toString());
 
                     driverNameTextView.setText(name);
                     driverContactTextView.setText(contact);

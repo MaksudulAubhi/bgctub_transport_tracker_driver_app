@@ -23,6 +23,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.bgctub_transport_tracker_driver_app.R;
+import com.example.bgctub_transport_tracker_driver_app.data_secure.DataSecure;
 import com.example.bgctub_transport_tracker_driver_app.services.TrackerService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -41,6 +42,7 @@ public class HomeFragment extends Fragment implements CompoundButton.OnCheckedCh
     private FirebaseUser mUser;
     private DatabaseReference transportInfoDatabaseRef, activeStatusDatabaseRef;
     private static final int PERMISSION_REQUEST = 1;
+    private DataSecure dataSecure;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +56,9 @@ public class HomeFragment extends Fragment implements CompoundButton.OnCheckedCh
                 textView.setText(s);
             }
         }); */
+
+        //for encoding and decoding
+        dataSecure=new DataSecure();
 
         activeButton = root.findViewById(R.id.activeSwitchButton);
         schedule_time_TextView = root.findViewById(R.id.home_schedule_time_textview);
@@ -90,11 +95,11 @@ public class HomeFragment extends Fragment implements CompoundButton.OnCheckedCh
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
 
-                    String schTime = snapshot.child("start_time_schedule").getValue().toString();
-                    String schDate = snapshot.child("start_date_schedule").getValue().toString();
-                    String schRoad = snapshot.child("travel_road").getValue().toString();
-                    String startLoc = snapshot.child("start_location").getValue().toString();
-                    String destinition = snapshot.child("destinition").getValue().toString();
+                    String schTime = dataSecure.dataDecode(snapshot.child("start_time_schedule").getValue().toString());
+                    String schDate = dataSecure.dataDecode(snapshot.child("start_date_schedule").getValue().toString());
+                    String schRoad = dataSecure.dataDecode(snapshot.child("travel_road").getValue().toString());
+                    String startLoc = dataSecure.dataDecode(snapshot.child("start_location").getValue().toString());
+                    String destinition = dataSecure.dataDecode(snapshot.child("destinition").getValue().toString());
 
                     schedule_time_TextView.setText(schTime);
                     schedule_day_TextView.setText(schDate);
