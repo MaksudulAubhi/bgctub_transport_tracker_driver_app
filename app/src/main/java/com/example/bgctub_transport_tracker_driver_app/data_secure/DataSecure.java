@@ -25,8 +25,8 @@ public class DataSecure{
     //used 16 byte key to generate 128
     //IV(Initialize Vector) also 16 byte
 
-    private static final String KEY= "****************";
-    private static final String INITVECTOR = "****************";
+    private static final String KEY= "****";
+    private static final String INITVECTOR = "****";
 
     //encoding process**
     public String encryption(String value) {

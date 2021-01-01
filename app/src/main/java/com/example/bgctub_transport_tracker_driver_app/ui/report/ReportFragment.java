@@ -21,6 +21,8 @@ import android.widget.Toast;
 import com.example.bgctub_transport_tracker_driver_app.BuildConfig;
 import com.example.bgctub_transport_tracker_driver_app.R;
 import com.example.bgctub_transport_tracker_driver_app.model.ReportFeedback;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -106,17 +108,29 @@ public class ReportFragment extends Fragment implements View.OnClickListener {
             return;
         }
 
-        progressDialog.setMessage("দয়া করে অপেক্ষা করুন");
+        progressDialog.setMessage("তথ্য আপডেট করা হচ্ছে");
         progressDialog.show();
         try{
             ReportFeedback reportFeedback=new ReportFeedback(userId,report_title,report_info,userPhone,app_name_version,timePost,configuration);
             //used pushed id
-            driverReportDatabaseRef.push().setValue(reportFeedback);
-            Toast.makeText(getActivity(),"ধন্যবাদ তথ্য সাবমিট করা হয়েছে",Toast.LENGTH_LONG).show();
+            driverReportDatabaseRef.push().setValue(reportFeedback).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    Toast.makeText(getActivity(),"ধন্যবাদ তথ্য সাবমিট করা হয়েছে",Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"দুঃখিত আবার চেষ্টা করুন",Toast.LENGTH_LONG).show();
+                    progressDialog.dismiss();
+                }
+            });
+
         }catch (Exception exception){
             Toast.makeText(getActivity(),"দুঃখিত আবার চেষ্টা করুন",Toast.LENGTH_LONG).show();
         }
-        progressDialog.dismiss();
     }
 
     @Override
